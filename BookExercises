@@ -1,0 +1,77 @@
+#include<bits/stdc++.h>
+#include<vector>
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    stack<string> t;
+    stack<int> o;
+    stack<int> w;
+    int l=0;
+    int h=0;
+    //int g=0;
+    int min=RAND_MAX;
+    w.push(min);
+    for(int i=0; i<n ; i++){
+        string k;
+        int p;
+        int f;
+        cin>>p;
+        if(p!= -1){
+            cin>>k;
+        }
+        //co;
+        if(p==-1){
+            //cout<<h;
+            //cout<<o.top();
+           f= h-o.top();
+           //cout<<f;
+           //o.pop();
+           for(int j=0; j<f; j++){
+               if(!t.empty()){
+               t.pop();
+               h=h-1;
+               }
+           }
+           cout<<f<<" "<<t.top()<<endl;
+            //l=0;
+            h=h-1;
+            if(!w.empty()){
+            w.pop();
+            }
+            if(!t.empty()){
+            t.pop();
+            }
+            //g=1;
+            if(!o.empty()){
+            
+            o.pop();
+            }
+        }
+        if(p!= -1){
+            t.push(k);
+            //cout<<t.top();
+            
+            
+                if(p<=w.top() && p!=0){
+                    min=p;
+                    w.push(p);
+                    l=h+1;
+                    o.push(l);
+                    //cout<<o.top();
+                    //cout<<h;
+                }
+                if(p==0){
+                    if(!t.empty()){
+                    t.pop();
+                    h=h-1;
+                    }
+                }
+            
+        
+            h++;
+
+        }
+
+    }
+}
